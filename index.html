@@ -3215,7 +3215,7 @@
   /* ===== ОТЗЫВЫ: адрес Google Apps Script (инструкция в файле yume-reviews.gs) =====
      Сюда вставить URL вида https://script.google.com/macros/s/.../exec
      Пока пусто — отзывы сохраняются только в браузере посетителя. */
-  const REVIEWS_API = "https://script.google.com/macros/s/AKfycbwIfVbHMfeiRHK0zFARl-fW5HXQ5xkqpzXhHrQlcKdcNXYGhPoR6646Aanz2lVixXJyyw/exec";
+  const REVIEWS_API = "https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=reviews";
 
   /* Запасные описания по категориям — показываются, если в таблице колонка «Описание» пустая */
   const DEFAULT_DESCS = {
@@ -3389,7 +3389,7 @@
     const catalog = document.getElementById("catalog");
     showCatalogSkeleton(catalog);
     try {
-      const response = await fetch('/api/products');
+      const response = await fetch('https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=products');
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const csv = await response.text();
       const rows = parseCSVRows(csv);
@@ -3428,7 +3428,7 @@ async function loadWholesale() {
     const grid = document.getElementById("wholesale-grid");
     showWholesaleSkeleton(grid);
     try {
-      const response = await fetch('/api/wholesale');
+      const response = await fetch('https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exechttps://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=productshttps://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=wholesale');
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const csv = await response.text();
       const rows = parseCSVRows(csv);
