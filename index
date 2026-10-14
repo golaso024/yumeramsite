@@ -2113,7 +2113,9 @@
   /* ========== КОНСТАНТЫ ========== */
   const TELEGRAM_USERNAME = "LooneyM";
   const MAX_USERNAME = "114207890";
-  const REVIEWS_API = "https://script.google.com/macros/s/AKfycbwIfVbHMfeiRHK0zFARl-fW5HXQ5xkqpzXhHrQlcKdcNXYGhPoR6646Aanz2lVixXJyyw/exec";
+  const API_URL = 'https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec';
+  const REVIEWS_API = "https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=reviews";
+
 
   /* Запасные описания по категориям */
   const DEFAULT_DESCS = {
@@ -2277,7 +2279,7 @@
     const catalogEl = document.getElementById("catalog");
     showCatalogSkeleton(catalogEl);
     try {
-      const response = await fetch('/api/products');
+      const response = await fetch(`${API_URL}?type=products`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const csv = await response.text();
       const rows = parseCSVRows(csv);
@@ -2315,7 +2317,7 @@
     const grid = document.getElementById("wholesale-grid");
     showWholesaleSkeleton(grid);
     try {
-      const response = await fetch('/api/wholesale');
+      const response = await fetch(`${API_URL}?type=wholesale`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const csv = await response.text();
       const rows = parseCSVRows(csv);
