@@ -3212,6 +3212,9 @@
   const TELEGRAM_USERNAME = "LooneyM";
   const MAX_USERNAME = "114207890";
 
+
+  const API_URL = 'https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec';
+
   /* ===== ОТЗЫВЫ: адрес Google Apps Script (инструкция в файле yume-reviews.gs) =====
      Сюда вставить URL вида https://script.google.com/macros/s/.../exec
      Пока пусто — отзывы сохраняются только в браузере посетителя. */
@@ -3389,7 +3392,7 @@
     const catalog = document.getElementById("catalog");
     showCatalogSkeleton(catalog);
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=products');
+      const response = await fetch(`${API_URL}?type=products`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const csv = await response.text();
       const rows = parseCSVRows(csv);
@@ -3428,7 +3431,7 @@ async function loadWholesale() {
     const grid = document.getElementById("wholesale-grid");
     showWholesaleSkeleton(grid);
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exechttps://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=productshttps://script.google.com/macros/s/AKfycbw_4xCLM1xdUxry6LwmZEcDHlvzoSDAcYiLJfemjHE-DN9Qh9sYHlgqo9Al5nsyQJpM9A/exec?type=wholesale');
+      const response = await fetch(`${API_URL}?type=wholesale`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const csv = await response.text();
       const rows = parseCSVRows(csv);
